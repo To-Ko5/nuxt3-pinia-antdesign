@@ -6,20 +6,14 @@
         <Meta name="description" :content="`${description}`" />
       </Head>
     </Html>
-    <div class="flex flex-col min-h-screen">
-      <AppHeader />
-      <div class="flex-grow">
-        <slot />
-      </div>
-      <AppFooter />
-    </div>
+    <div><slot /></div>
   </div>
 </template>
 
 <script setup lang="ts">
-import "ant-design-vue/dist/reset.css";
+import 'ant-design-vue/dist/reset.css'
 const { title, description } = defineProps({
   title: { type: String, required: true },
-  description: { type: String, required: true },
-});
+  description: { type: String, required: true }
+})
 </script>
