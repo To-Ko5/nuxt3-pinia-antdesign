@@ -2,12 +2,14 @@
   <div>
     <Html lang="ja">
       <Head>
-        <Title>{{ title }}</Title>
-        <Meta name="description" :content="`${description}`" />
+        <Title>{{ meta.title }}</Title>
+        <Meta name="description" :content="`${meta.description}`" />
       </Head>
     </Html>
-    <Header />
-    <slot />
+    <a-extract-style>
+      <Header />
+      <slot />
+    </a-extract-style>
   </div>
 </template>
 
@@ -17,4 +19,9 @@ const { title, description } = defineProps({
   title: { type: String, required: true },
   description: { type: String, required: true }
 })
+
+const meta = {
+  title: title || 'Default Title',
+  description: description || 'default description'
+}
 </script>
