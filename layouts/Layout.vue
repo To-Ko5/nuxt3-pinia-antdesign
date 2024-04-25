@@ -6,7 +6,8 @@
         <Meta name="description" :content="`${description}`" />
       </Head>
     </Html>
-    <div><slot /></div>
+    <Header />
+    <slot />
   </div>
 </template>
 
