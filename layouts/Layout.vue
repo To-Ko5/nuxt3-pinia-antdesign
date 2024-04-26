@@ -6,19 +6,18 @@
         <Meta name="description" :content="`${meta.description}`" />
       </Head>
     </Html>
-    <a-extract-style>
-      <Header />
-      <slot />
-    </a-extract-style>
+
+    <Header />
+    <slot />
   </div>
 </template>
 
 <script setup lang="ts">
 import 'ant-design-vue/dist/reset.css'
-const { title, description } = defineProps({
-  title: { type: String, required: true },
-  description: { type: String, required: true }
-})
+const { title, description } = defineProps<{
+  title?: string
+  description?: string
+}>()
 
 const meta = {
   title: title || 'Default Title',
