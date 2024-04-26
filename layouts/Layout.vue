@@ -7,8 +7,14 @@
       </Head>
     </Html>
 
-    <Header />
-    <slot />
+    <div class="layout">
+      <Header />
+      <div class="layout__main">
+        <slot />
+      </div>
+
+      <Footer />
+    </div>
   </div>
 </template>
 
@@ -24,3 +30,14 @@ const meta = {
   description: description || 'default description'
 }
 </script>
+
+<style lang="scss" scoped>
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  &__main {
+    flex-grow: 1;
+  }
+}
+</style>
