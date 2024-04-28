@@ -10,7 +10,9 @@
     <div class="layout">
       <Header />
       <div class="layout__main">
-        <slot />
+        <div class="container">
+          <slot />
+        </div>
       </div>
 
       <Footer />
@@ -39,5 +41,11 @@ const meta = {
   &__main {
     flex-grow: 1;
   }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 16px;
 }
 </style>
