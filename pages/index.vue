@@ -1,7 +1,10 @@
 <template>
   <NuxtLayout name="layout">
     <div class="search">
-      <search-input />
+      <search-input
+        :searchValue="searchValue"
+        @clickSearchEvent="handleSearch"
+      />
     </div>
     <a-row :gutter="[16, 16]" :wrap="true" justify="space-between">
       <a-col v-for="(post, index) in posts" flex="12" class="cards"
@@ -13,11 +16,18 @@
 
 <script lang="ts" setup>
 import { type post } from '@/types/data'
-const { data } = await useFetch<post[]>(
+import type { RefSymbol } from '@vue/reactivity'
+const { data: response } = await useFetch<post[]>(
   'https://jsonplaceholder.typicode.com/posts'
 )
 
-const posts = ref(data)
+const searchValue = ref('')
+
+const posts = ref(response)
+
+const handleSearch = (data: string) => {
+  console.log(data)
+}
 </script>
 
 <style lang="scss" scoped>
